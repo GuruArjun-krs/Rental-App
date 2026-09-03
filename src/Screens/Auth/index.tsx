@@ -1,4 +1,4 @@
-import AuthLoginScreen from "./Login";
+import AuthLoginScreen from "@/Screens/Auth/Login";
 
 export {
     AuthLoginScreen

@@ -1,4 +1,4 @@
-import { AuthLoginScreen } from "../../Screens/Auth";
+import { AuthLoginScreen } from "@/Screens/Auth";
 
 export const StackScreens = [
     {
