@@ -36,6 +36,7 @@ const CustomButton = ({
 
     return (
         <TouchableOpacity
+            accessibilityRole="button"
             activeOpacity={0.7}
             disabled={isLoading || isDisable}
             onPress={onPress}
