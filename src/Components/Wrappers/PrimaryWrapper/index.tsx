@@ -13,7 +13,12 @@ interface LayoutType {
     bgColor?: string
     childStyle?: any
     viewBg?: string
-    edges?: any
+    edges?: 'allEdges' | 'exceptBottom'
+}
+
+const insetsTypes = {
+    allEdges: ['top', 'left', 'right', 'bottom'] as const,
+    exceptBottom: ['top', 'left', 'right'] as const,
 }
 
 const PrimaryLayout = ({
@@ -22,14 +27,14 @@ const PrimaryLayout = ({
     bgColor = COLORS.white,
     childStyle,
     viewBg = COLORS.white,
-    edges = ['top', 'left', 'right', 'bottom']
+    edges = 'allEdges'
 }: LayoutType) => {
     const isFocused = useIsFocused();
     const { white } = useColorTheme()
     const isLightBackground = bgColor === white
 
     return (
-        <SafeAreaView edges={edges} style={[styles.safeareaWrapper, { backgroundColor: bgColor }, appStyle]}>
+        <SafeAreaView edges={insetsTypes[edges]} style={[styles.safeareaWrapper, { backgroundColor: bgColor }, appStyle]}>
             {isFocused && (
                 <StatusBar
                     barStyle={isLightBackground ? 'dark-content' : 'light-content'}
